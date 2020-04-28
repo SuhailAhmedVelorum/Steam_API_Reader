@@ -5,7 +5,6 @@ import sys
 import time
 import ctypes
 from tkinter import *
-tries = 3
 
 def weapon():
     WEAPON = input("Weapon name: ")
@@ -32,7 +31,6 @@ def weapon():
     lbl.pack(anchor = 'center')
     root.mainloop()
 
-#Comment added for fun
 
 def agent():
     AGENT = input("Agent: ")

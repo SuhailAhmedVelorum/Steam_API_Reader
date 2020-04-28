@@ -5,7 +5,6 @@ import sys
 import time
 import ctypes
 from tkinter import *
-tries = 3
 
 def weapon():
     WEAPON = input("Weapon name: ")

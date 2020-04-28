@@ -10,18 +10,23 @@ tries = 3
 def weapon():
     WEAPON = input("Weapon name: ")
     SKIN = input("Skin: ")
-    EXTERIOR = input("Exterior type (FN/MW/FT/WW/BS): ")
+    EXTERIOR = input("Exterior type (FN/MW/FT/WW/BS): ").lower()
+    STAT = input('StatTrak (Y/N): ').lower()
+    WEAPONS = WEAPON
     WEAPON = re.sub(r"\s+", '%20', WEAPON)
+    if STAT == 'y':
+        WEAPON = "StatTrak%E2%84%A2 "+ WEAPON
     d = {
-        "FN": "Factory New",
-        "MW": "Minimal Wear",
-        "FT": "Field-Tested",
-        "WW": "Well-Worn", 
-        "BS": "Battle-Scarred"                     
+        "fn": "Factory New",
+        "mw": "Minimal Wear",
+        "ft": "Field-Tested",
+        "ww": "Well-Worn", 
+        "bs": "Battle-Scarred"                     
     }
     EXTERIOR = d[EXTERIOR]
     root = Tk()
-    root.title(WEAPON +" "+ SKIN + " | " + EXTERIOR)
+    if STAT == y:
+        root.title("StatTrak " WEAPONS +" "+ SKIN + " | " + EXTERIOR)
     lbl = Label(root, font = ('source code pro', 20, 'bold'), background = 'black', foreground = 'pink')
     lbl.config(text = 'Prices start at ' + requests.get("https://steamcommunity.com/market/priceoverview/?appid=730&market_hash_name=" + WEAPON + "%20%7C%20" + SKIN + "%20" + "%28" + EXTERIOR + "%29" + "&currency=24").json()['lowest_price']+ "\n" + 'Currently '+ requests.get("https://steamcommunity.com/market/priceoverview/?appid=730&market_hash_name=" + WEAPON + "%20%7C%20" + SKIN + "%20" + "%28" + EXTERIOR + "%29" + "&currency=24").json()['volume'] + ' units are available in the market')
     lbl.pack(anchor = 'center')

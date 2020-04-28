@@ -5,7 +5,7 @@ import sys
 import time
 import ctypes
 from tkinter import *
-# HELLO
+# HELLO i am part of master
 
 def weapon():
     WEAPON = input("Weapon name: ")

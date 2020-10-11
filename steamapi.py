@@ -5,7 +5,6 @@ import sys
 import time
 import ctypes
 from tkinter import *
-# HELLO i am part of master
 
 def weapon():
     WEAPON = input("Weapon name: ")
@@ -14,7 +13,7 @@ def weapon():
     STAT = input('StatTrak (Y/N): ').lower()
     WEAPONS = WEAPON
     WEAPON = re.sub(r"\s+", '%20', WEAPON)
-    if STAT == "y" or "Y" or "Yes" or "yes":
+    if STAT == "y" :
         root.title("StatTrak " + WEAPONS +" "+ SKIN + " | " + EXTERIOR)
     lbl = Label(root, font = ('source code pro', 20, 'bold'), background = 'black', foreground = 'pink')
     lbl.config(text = 'Prices start at ' + requests.get("https://steamcommunity.com/market/priceoverview/?appid=730&market_hash_name=" + WEAPON + "%20%7C%20" + SKIN + "%20" + "%28" + EXTERIOR + "%29" + "&currency=24").json()['lowest_price']+ "\n" + 'Currently '+ requests.get("https://steamcommunity.com/market/priceoverview/?appid=730&market_hash_name=" + WEAPON + "%20%7C%20" + SKIN + "%20" + "%28" + EXTERIOR + "%29" + "&currency=24").json()['volume'] + ' units are available in the market')

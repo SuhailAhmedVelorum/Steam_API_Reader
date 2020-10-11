@@ -26,7 +26,7 @@ def weapon():
     EXTERIOR = d[EXTERIOR]
     root = Tk()
     if STAT == y:
-        root.title("StatTrak " WEAPONS +" "+ SKIN + " | " + EXTERIOR)
+        root.title("StatTrak " +WEAPONS +" "+ SKIN + " | " + EXTERIOR)
     lbl = Label(root, font = ('source code pro', 20, 'bold'), background = 'black', foreground = 'pink')
     lbl.config(text = 'Prices start at ' + requests.get("https://steamcommunity.com/market/priceoverview/?appid=730&market_hash_name=" + WEAPON + "%20%7C%20" + SKIN + "%20" + "%28" + EXTERIOR + "%29" + "&currency=24").json()['lowest_price']+ "\n" + 'Currently '+ requests.get("https://steamcommunity.com/market/priceoverview/?appid=730&market_hash_name=" + WEAPON + "%20%7C%20" + SKIN + "%20" + "%28" + EXTERIOR + "%29" + "&currency=24").json()['volume'] + ' units are available in the market')
     lbl.pack(anchor = 'center')
@@ -53,7 +53,7 @@ def case():
     root.mainloop()
 
 def init_input():   
-    TYPE = input("Choose type from (Weapon/Agent/Case): ")
+    TYPE = input("Choose type from (Weapon/Agent/Case): ").lower()
     if TYPE == "weapon":
         weapon()
     elif TYPE == "agent":
